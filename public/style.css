@@ -1,4 +1,13 @@
-.tweet-list {
+#leftrail {
+    width: 20em;
+}
+
+#content {
+}
+
+#tweet-list {
+    max-height: 100vh;
+    overflow: scroll;
 }
 
 .tweet {
@@ -22,4 +31,9 @@
 }
 
 .tweet-body {
+}
+
+#tweet-bottom {
+    height: 5em;
+    background-color: #e0e0e0;
 }

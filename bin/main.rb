@@ -10,7 +10,7 @@ set :public_folder, 'public'
 
 get '/api/tweets' do
   count = params['count']&.to_i || 50
-  cursor = params['cursor']&.to_cursor
+  cursor = params['cursor']&.to_cursor rescue nil
   tweets = Walter::Tweet.find_tweets(count, cursor&.from_id)
   if tweets.size == count
     next_cursor = Walter::TweetCursor.new(tweets.last.id)

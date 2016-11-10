@@ -9,8 +9,9 @@ export default class TweetList extends React.Component {
     render() {
         let tweets = this.props.tweets.map((tweet) => <Tweet tweet={tweet} />);
         return (
-            <section id="tweet-list">
+            <section id="tweet-list" onScroll={this.props.onScroll}>
                 {tweets}
+                <div id="tweet-bottom"></div>
             </section>
         );
     }

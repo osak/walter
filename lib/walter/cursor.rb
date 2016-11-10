@@ -50,6 +50,8 @@ module Walter
       'tweet'
     end
 
+    attr_reader :from_id
+
     def initialize(val)
       @from_id = val.to_i
     end
