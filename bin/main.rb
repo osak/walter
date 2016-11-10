@@ -6,6 +6,8 @@ require_relative '../lib/walter'
 
 using Walter::Cursor::Decoder
 
+set :public_folder, 'public'
+
 get '/api/tweets' do
   count = params['count']&.to_i || 50
   cursor = params['cursor']&.to_cursor

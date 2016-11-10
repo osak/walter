@@ -20,7 +20,7 @@ module Walter
       {
         id: id,
         name: name,
-        screen_name: screen_name
+        screenName: screen_name
       }.to_json
     end
   end
