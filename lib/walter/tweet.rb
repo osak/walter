@@ -39,7 +39,7 @@ module Walter
 
     def initialize(hash)
       @id = hash[:id]
-      @text = hash[:text]
+      @text = hash[:text].gsub(/&lt;/, '<').gsub(/&gt;/, '>').gsub(/&amp;/, '&')
       @user = User.from_mongo_entry(hash[:user])
       @timestamp = Time.parse(hash[:created_at])
       @is_blog_mention = hash[:entities][:urls].any?{|obj| obj[:expanded_url].index('osak.hatenablog.jp')}
