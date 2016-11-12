@@ -14,10 +14,13 @@ module Walter
         end
       end
 
-      def find_tweets(count, from_id = nil)
+      def find_tweets(count, from_id = nil, screen_name)
         condition = Hash.new
         if from_id
           condition[:id] = {'$lt': from_id.to_i}
+        end
+        if screen_name
+          condition['user.screen_name'] = screen_name.to_s
         end
         result = collection.find(condition).sort({id: -1}).limit(count.to_i)
         result.map{|r| from_mongo_entry(r)}

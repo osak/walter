@@ -1,8 +1,17 @@
+.wrapper {
+    padding-left: 10em;
+}
+
 #leftrail {
-    width: 20em;
+    margin-left: -10em;
+    width: 10em;
+    background-color: #60a060;
+    position: fixed;
+    height: 100%;
 }
 
 #content {
+    padding: 10px;
 }
 
 #tweet-list {
