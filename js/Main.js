@@ -38,7 +38,7 @@ function onTweetListScroll(e) {
     if (loading) {
         return;
     }
-    if (e.target.scrollTop > e.target.scrollTopMax - 100) {
+    if (window.scrollY > window.scrollMaxY - 200) {
         loading = true;
         window.requestAnimationFrame(() => {
             loadMore();
@@ -49,7 +49,7 @@ function onTweetListScroll(e) {
 }
 
 function render() {
-    ReactDOM.render(<TweetList tweets={tweets} onScroll={onTweetListScroll} />, document.getElementById('content'));
+    ReactDOM.render(<TweetList tweets={tweets} />, document.getElementById('content'));
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -57,4 +57,5 @@ window.addEventListener('DOMContentLoaded', async () => {
     await loadMore();
     render();
     loading = false;
+    window.addEventListener('scroll', onTweetListScroll);
 });

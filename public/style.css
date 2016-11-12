@@ -6,8 +6,6 @@
 }
 
 #tweet-list {
-    max-height: 100vh;
-    overflow: scroll;
 }
 
 .tweet {
