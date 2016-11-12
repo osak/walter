@@ -13,12 +13,17 @@ export default class Tweet extends React.Component {
         }
         return (
             <article className={classes.join(' ')}>
-                <div className="tweet-header row">
-                    <div className="tweet-username col-xs-2">{this.props.tweet.user.name}</div>
-                    <div className="tweet-screenname col-xs-2">@{this.props.tweet.user.screenName}</div>
-                    <div className="tweet-time col-xs-3 col-xs-offset-5">{tweetTime}</div>
+                <div className="tweet-profile-image">
+                    <img src={this.props.tweet.user.profileImageUrl} />
                 </div>
-                <div className="tweet-body">{this.props.tweet.text}</div>
+                <div className="tweet-main">
+                    <div className="tweet-header">
+                        <div className="tweet-time">{tweetTime}</div>
+                        <div className="tweet-username">{this.props.tweet.user.name}</div>
+                        <div className="tweet-screenname">@{this.props.tweet.user.screenName}</div>
+                    </div>
+                    <div className="tweet-body">{this.props.tweet.text}</div>
+                </div>
             </article>
         );
     }

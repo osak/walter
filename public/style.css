@@ -8,6 +8,7 @@
     background-color: #60a060;
     position: fixed;
     height: 100%;
+    padding: 10px;
 }
 
 #content {
@@ -19,10 +20,19 @@
 
 .tweet {
     border: 1px solid black;
+    display: flex;
 }
 
 .tweet--blog-mention {
     background-color: #ffd0d0;
+}
+
+.tweet-profile-image {
+}
+
+.tweet-main {
+    padding: 5px;
+    flex-grow: 99;
 }
 
 .tweet-header {
@@ -40,6 +50,7 @@
 .tweet-time {
     display: inline-block;
     color: #808080;
+    float: right;
 }
 
 .tweet-body {
