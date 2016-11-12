@@ -30,6 +30,12 @@
     font-size: 80%;
 }
 
+.tweet-time {
+    float: right;
+    display: inline-block;
+    color: #808080;
+}
+
 .tweet-body {
 }
 

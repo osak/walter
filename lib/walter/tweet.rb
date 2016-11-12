@@ -1,4 +1,5 @@
 require 'mongo'
+require 'time'
 require_relative 'user'
 
 module Walter
@@ -34,19 +35,21 @@ module Walter
       end
     end
 
-    attr_reader :id, :text, :user
+    attr_reader :id, :text, :user, :timestamp
 
     def initialize(hash)
       @id = hash[:id]
       @text = hash[:text]
       @user = User.from_mongo_entry(hash[:user])
+      @timestamp = Time.parse(hash[:created_at])
     end
 
     def to_json(*args)
       {
         id: id,
         text: text,
-        user: user
+        user: user,
+        timestamp: timestamp.to_i
       }.to_json
     end
   end
