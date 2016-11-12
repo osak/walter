@@ -31,17 +31,18 @@ module Walter
       end
 
       def from_mongo_entry(entry)
-        Tweet.new(entry.symbolize_keys)
+        Tweet.new(entry.deep_symbolize_keys)
       end
     end
 
-    attr_reader :id, :text, :user, :timestamp
+    attr_reader :id, :text, :user, :timestamp, :is_blog_mention
 
     def initialize(hash)
       @id = hash[:id]
       @text = hash[:text]
       @user = User.from_mongo_entry(hash[:user])
       @timestamp = Time.parse(hash[:created_at])
+      @is_blog_mention = hash[:entities][:urls].any?{|obj| obj[:expanded_url].index('osak.hatenablog.jp')}
     end
 
     def to_json(*args)
@@ -49,7 +50,8 @@ module Walter
         id: id,
         text: text,
         user: user,
-        timestamp: timestamp.to_i
+        timestamp: timestamp.to_i,
+        isBlogMention: is_blog_mention,
       }.to_json
     end
   end

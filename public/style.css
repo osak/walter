@@ -15,6 +15,10 @@
     border-radius: 5px;
 }
 
+.tweet--blog-mention {
+    background-color: #ffd0d0;
+}
+
 .tweet-header {
     margin-bottom: 4px;
 }
