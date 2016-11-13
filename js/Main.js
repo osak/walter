@@ -82,8 +82,8 @@ function onTweetListScroll(e) {
     }
     if (window.scrollY > window.scrollMaxY - 200) {
         loading = true;
-        window.requestAnimationFrame(() => {
-            loadMore();
+        window.requestAnimationFrame(async () => {
+            await loadMore();
             loading = false;
         });
     }
