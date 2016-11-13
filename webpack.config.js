@@ -2,7 +2,8 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: ['babel-polyfill', './js/Main.js'],
-    output: { path: './public', filename: 'bundle.js' },
+    output: { path: './public', filename: 'bundle.js', sourceMapFilename: 'bundle.map' },
+    devtool: '#source-map',
     module: {
         loaders: [{
             test: /.js$/,

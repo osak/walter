@@ -46,6 +46,27 @@ async function loadMore() {
     let res = await getTweets(undefined, lastCursor);
     lastCursor = res.cursor;
     tweets.push(...res.tweets);
+    let groupByUser = tweets.reduce((dict, tweet) => {
+        let key = tweet.user.id;
+        if (!dict.has(key)) {
+            dict.set(key, []);
+        }
+        dict.get(key).push(tweet);
+        return dict;
+    }, new Map());
+    let withOldest = Array.from(groupByUser.values()).map((arr) => {
+        return {
+            arr: arr,
+            oldest: arr.reduce((a, b) => Math.min(a, b.timestamp), 1.0 / 0.0)
+        }
+    });
+    // Sort by descending order of oldest tweet of user
+    withOldest.sort((a, b) => b.oldest - a.oldest);
+    tweets = withOldest.reduce((a, b) => {
+        b.arr[b.arr.length-1].isBlogMention = true;
+        a.push(...b.arr);
+        return a;
+    }, []);
     render();
 }
 

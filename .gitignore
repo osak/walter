@@ -1,4 +1,5 @@
 Gemfile.lock
 vendor
 public/bundle.js
+public/bundle.map
 node_modules
