@@ -99,8 +99,8 @@ function onSearch(name) {
         return;
     }
     loading = true;
-    window.requestAnimationFrame(() => {
-        loadUserTweets(name);
+    window.requestAnimationFrame(async () => {
+        await loadUserTweets(name);
         loading = false;
     });
 }

@@ -53,7 +53,7 @@ module Walter
     attr_reader :from_id
 
     def initialize(val)
-      @from_id = val.to_i
+      @from_id = val.to_s
     end
 
     protected
