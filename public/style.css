@@ -1,3 +1,22 @@
+#top-navbar {
+    color: #ffffff;
+    background-color: #101010;
+    margin-bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 2em;
+}
+
+#top-navbar .navbar-brand {
+    color: #ffffff;
+}
+
+#top-navbar .navbar-nav > li > a,
+#top-navbar .navbar-nav > li > a:focus,
+#top-navbar .navbar-nav > li > a:hover {
+    color: #ffffff;
+}
+
 .wrapper {
     padding-left: 10em;
 }
@@ -9,10 +28,12 @@
     position: fixed;
     height: 100%;
     padding: 10px;
+    top: 50px;
 }
 
 #content {
     padding: 10px;
+    margin-top: 50px;
 }
 
 #tweet-list {
