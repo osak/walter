@@ -77,6 +77,7 @@ module Walter
     def to_json(*args)
       {
         id: id,
+        idString: id.to_s,
         text: text,
         user: user,
         timestamp: timestamp.to_i,
