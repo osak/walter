@@ -74,6 +74,11 @@
     float: right;
 }
 
+.tweet-logo {
+    display: inline-block;
+    float: right;
+}
+
 .tweet-time a {
     color: #808080;
 }

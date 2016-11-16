@@ -19,6 +19,7 @@ export default class Tweet extends React.Component {
                 </div>
                 <div className="tweet-main">
                     <div className="tweet-header">
+                        <div className="tweet-logo"><img src="/twitter.png" width="32px" height="32px" /></div>
                         <div className="tweet-time"><a href={tweetUrl} target="_blank">{tweetTime}</a></div>
                         <div className="tweet-username">{this.props.tweet.user.name}</div>
                         <div className="tweet-screenname">@{this.props.tweet.user.screenName}</div>
