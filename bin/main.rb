@@ -7,6 +7,8 @@ require_relative '../lib/walter'
 using Walter::Cursor::Decoder
 
 set :public_folder, 'public'
+set :environment, :production
+set :protection, except: [:json_csrf]
 
 get '/api/tweets' do
   count = params['count']&.to_i || 50
